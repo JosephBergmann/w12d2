@@ -410,3 +410,81 @@ Processing by ApplicationController#test as */*
 Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 711)
 
 
+Started GET "/" for ::1 at 2023-01-31 15:24:29 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 526)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 2806)
+
+
+Started POST "/api/session" for ::1 at 2023-01-31 15:24:55 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"credential"=>"Demo-lition", "password"=>"[FILTERED]", "session"=>{"credential"=>"Demo-lition", "password"=>"[FILTERED]"}}
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms | Allocations: 1914)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/api/sessions_controller.rb:31:in `user_params'
+  app/controllers/api/sessions_controller.rb:11:in `create'
+
+Started GET "/api/session" for ::1 at 2023-01-31 15:26:08 -0500
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+Completed 200 OK in 43ms (Views: 0.3ms | ActiveRecord: 3.8ms | Allocations: 3393)
+
+
+Started GET "/" for ::1 at 2023-01-31 15:27:20 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 280)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 915)
+
+
+Started POST "/api/session" for ::1 at 2023-01-31 15:27:43 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"credential"=>"Demo-lition", "password"=>"[FILTERED]", "session"=>{"credential"=>"Demo-lition", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 2625)
+
+
+
+NameError - undefined local variable or method `console' for #<Api::SessionsController:0x00000000004948>
+    console.log(user_params)
+    ^^^^^^^:
+  app/controllers/api/sessions_controller.rb:11:in `create'
+
+Started POST "/api/session" for ::1 at 2023-01-31 15:28:09 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"credential"=>"Demo-lition", "password"=>"[FILTERED]", "session"=>{"credential"=>"Demo-lition", "password"=>"[FILTERED]"}}
+Started GET "/" for ::1 at 2023-01-31 15:29:42 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 526)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 2806)
+
+
+Started POST "/api/session" for ::1 at 2023-01-31 15:29:56 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"credential"=>"Demo-lition", "password"=>"[FILTERED]", "session"=>{"credential"=>"Demo-lition", "password"=>"[FILTERED]"}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 727)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/api/sessions_controller.rb:33:in `user_params'
+  app/controllers/api/sessions_controller.rb:12:in `create'
+
+Started GET "/" for ::1 at 2023-01-31 15:30:57 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 281)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 920)
+
+
+Started GET "/favicon.ico" for ::1 at 2023-01-31 15:31:07 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
