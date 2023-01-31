@@ -521,3 +521,186 @@ Processing by Api::SessionsController#create as JSON
 Completed 200 OK in 284ms (Views: 0.3ms | ActiveRecord: 18.0ms | Allocations: 19229)
 
 
+Started GET "/api/session" for ::1 at 2023-01-31 17:34:52 -0500
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+Completed 200 OK in 60ms (Views: 1.2ms | ActiveRecord: 22.9ms | Allocations: 3782)
+
+
+Started DELETE "/api/session" for ::1 at 2023-01-31 17:35:02 -0500
+Processing by Api::SessionsController#destroy as JSON
+No template found for Api::SessionsController#destroy, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 220)
+
+
+Started DELETE "/api/session" for ::1 at 2023-01-31 17:36:05 -0500
+Processing by Api::SessionsController#destroy as JSON
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 204)
+
+
+Started GET "/" for ::1 at 2023-01-31 17:38:04 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 23)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 267)
+
+
+Started POST "/api/session" for ::1 at 2023-01-31 17:38:29 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"credential"=>"Demo-lition", "password"=>"[FILTERED]", "session"=>{"credential"=>"Demo-lition", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "Demo-lition"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `find_by_credentials'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Demo-lition"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:22:in `find_by_credentials'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Demo-lition"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@user.io"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Update (3.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2023-01-31 22:38:29.735900"], ["id", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+Completed 200 OK in 307ms (Views: 0.2ms | ActiveRecord: 22.5ms | Allocations: 9683)
+
+
+Started GET "/api/session" for ::1 at 2023-01-31 17:38:47 -0500
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.0ms | Allocations: 776)
+
+
+Started DELETE "/api/session" for ::1 at 2023-01-31 17:39:03 -0500
+Processing by Api::SessionsController#destroy as JSON
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 87)
+
+
+Started DELETE "/api/session" for ::1 at 2023-01-31 17:39:45 -0500
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Demo-lition"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@user.io"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2023-01-31 22:39:45.903859"], ["id", 1]]
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:35:in `reset_session_token!'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 8.7ms | Allocations: 8852)
+
+
+Started DELETE "/api/session" for ::1 at 2023-01-31 17:39:59 -0500
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 2.2ms | Allocations: 2775)
+
+
+Started GET "/api/session" for ::1 at 2023-01-31 17:40:15 -0500
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 708)
+
+
+Started POST "/api/users" for ::1 at 2023-01-31 17:42:58 -0500
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"coolemail@hotmail.net", "username"=>"cooluser", "password"=>"[FILTERED]", "user"=>{"email"=>"coolemail@hotmail.net", "username"=>"cooluser"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 3.6ms | Allocations: 287)
+
+
+Started POST "/api/users" for ::1 at 2023-01-31 17:43:22 -0500
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"coolemail@hotmail.net", "username"=>"cooluser", "password"=>"[FILTERED]", "user"=>{"email"=>"coolemail@hotmail.net", "username"=>"cooluser"}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 133)
+
+
+Started POST "/api/users" for ::1 at 2023-01-31 17:45:49 -0500
+
+SyntaxError - syntax error, unexpected ':', expecting '}'
+      render { errors: @user.errors.full_messages }...
+                     ^
+/Users/josephbergmann/Desktop/aaclass/classwork/w12d2/authenticate-me/app/controllers/api/users_controller.rb:8: syntax error, unexpected '}', expecting `end'
+...s: @user.errors.full_messages }, status: :unprocessable_enti...
+...                              ^:
+  app/controllers/api/users_controller.rb:8:in `'
+
+Started POST "/api/users" for ::1 at 2023-01-31 17:46:07 -0500
+
+SyntaxError - syntax error, unexpected ':', expecting '}'
+      render { errors: @user.errors.full_messages }...
+                     ^
+/Users/josephbergmann/Desktop/aaclass/classwork/w12d2/authenticate-me/app/controllers/api/users_controller.rb:8: syntax error, unexpected '}', expecting `end'
+...s: @user.errors.full_messages }, status: :unprocessable_enti...
+...                              ^:
+  app/controllers/api/users_controller.rb:8:in `'
+
+Started POST "/api/users" for ::1 at 2023-01-31 17:46:27 -0500
+
+SyntaxError - syntax error, unexpected ':', expecting '}'
+      render { errors: @user.errors.full_messages }...
+                     ^
+/Users/josephbergmann/Desktop/aaclass/classwork/w12d2/authenticate-me/app/controllers/api/users_controller.rb:8: syntax error, unexpected '}', expecting `end'
+...s: @user.errors.full_messages }, status: :unprocessable_enti...
+...                              ^:
+  app/controllers/api/users_controller.rb:8:in `'
+
+Started POST "/api/users" for ::1 at 2023-01-31 17:46:59 -0500
+
+SyntaxError - syntax error, unexpected ':', expecting '}'
+      render { errors: {@user.errors.full_messages}...
+                     ^
+/Users/josephbergmann/Desktop/aaclass/classwork/w12d2/authenticate-me/app/controllers/api/users_controller.rb:8: syntax error, unexpected '}', expecting =>
+...s: {@user.errors.full_messages} }, status: :unprocessable_en...
+...                              ^:
+  app/controllers/api/users_controller.rb:8:in `'
+
+Started POST "/api/users" for ::1 at 2023-01-31 17:47:19 -0500
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"coolemail@hotmail.net", "username"=>"cooluser", "password"=>"[FILTERED]", "user"=>{"email"=>"coolemail@hotmail.net", "username"=>"cooluser"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "cooluser"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "coolemail@hotmail.net"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:4:in `create'
+Completed 422 Unprocessable Entity in 629ms (Views: 0.1ms | ActiveRecord: 5.4ms | Allocations: 950862)
+
+
+Started GET "/" for ::1 at 2023-01-31 17:47:37 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/josephbergmann/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 22)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 234)
+
+
+Started POST "/api/users" for ::1 at 2023-01-31 17:48:00 -0500
+Processing by Api::UsersController#create as JSON
+  Parameters: {"email"=>"coolemail@hotmail.net", "username"=>"cooluser", "password"=>"[FILTERED]", "user"=>{"email"=>"coolemail@hotmail.net", "username"=>"cooluser"}}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "cooluser"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "coolemail@hotmail.net"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:4:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:4:in `create'
+Completed 422 Unprocessable Entity in 16ms (Views: 0.2ms | ActiveRecord: 3.8ms | Allocations: 4551)
+
+
