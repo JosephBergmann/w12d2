@@ -9,8 +9,10 @@ class Api::SessionsController < ApplicationController
 
   def create
 
-    debugger
-    @user = User.find_by_credentials(user_params)
+    credential = params.require(:credential)
+    password = params.require(:password)
+    # debugger
+    @user = User.find_by_credentials(credential, password)
 
     if @user
       login!(@user)
@@ -29,7 +31,8 @@ class Api::SessionsController < ApplicationController
   end
 
   private
-  def user_params
-    params.require(:user).permit(:credential, :password)
-  end
+  # def user_params
+  #   debugger
+  #   # params.require(:user).permit(:credential, :password)
+  # end
 end
