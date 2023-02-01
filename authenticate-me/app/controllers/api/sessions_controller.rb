@@ -11,6 +11,7 @@ class Api::SessionsController < ApplicationController
 
     credential = params.require(:credential)
     password = params.require(:password)
+    
     # debugger
     @user = User.find_by_credentials(credential, password)
 
